@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articles — Lil Eye of Mine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="articles.css">
+</head>
+<body>
+<div class="static-bg"></div>
+
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Lil Eye of <span>Mine</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="articles.html">Articles</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<div class="page-header reveal">
+  <span class="page-header-tag">The Written Word</span>
+  <h1>Articles</h1>
+  <p>Essays, memoirs, and quiet observations — written slowly, with care.</p>
+</div>
+
+<div class="articles-page">
+
+  <!-- FILTER TABS -->
+  <div class="filter-tabs reveal">
+    <button class="filter-tab active" data-filter="all">All Pieces</button>
+    <button class="filter-tab" data-filter="essay">Essay</button>
+    <button class="filter-tab" data-filter="memoir">Memoir</button>
+    <button class="filter-tab" data-filter="nature">Nature</button>
+    <button class="filter-tab" data-filter="travel">Travel</button>
+    <button class="filter-tab" data-filter="life">Life</button>
+  </div>
+
+  <!-- FEATURED -->
+  <div class="featured-article reveal" data-modal="0">
+    <div class="featured-img">
+      <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80" alt="Forest">
+    </div>
+    <div class="featured-body">
+      <div class="featured-tag">Essay · Nature</div>
+      <div class="featured-title">On the Quiet Hours Before Dawn</div>
+      <div class="featured-excerpt">There is a particular quality of silence that exists only in the moments before sunrise — heavy with possibility, soft with forgotten dreams and the last embers of night.</div>
+      <div class="featured-meta">March 2025 &nbsp;·&nbsp; 6 min read</div>
+    </div>
+  </div>
+
+  <!-- ARTICLES GRID -->
+  <div class="articles-list-header reveal">
+    All writings <span>12 pieces</span>
+  </div>
+
+  <div class="articles-grid-main" id="articlesGrid">
+
+    <a class="art-card reveal" data-modal="1" data-filter="memoir travel" href="#">
+      <div class="art-card-img">
+        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&q=80" alt="Colombo">
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-tag">Memoir · Travel</div>
+        <div class="art-card-title">Postcards from a City That Doesn't Sleep</div>
+        <div class="art-card-excerpt">A wanderer's notes on Colombo — written between cups of strong tea and sudden rain that smells of jasmine and iron.</div>
+        <div class="art-card-footer">
+          <span>8 min read · Feb 2025</span>
+          <span class="art-card-readmore">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="art-card reveal" data-modal="2" data-filter="life essay" href="#">
+      <div class="art-card-img">
+        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80" alt="Writing">
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-tag">Reflection · Life</div>
+        <div class="art-card-title">The Art of Letting Things Be Unfinished</div>
+        <div class="art-card-excerpt">Not everything needs a conclusion. Some thoughts are better left growing wild at the edges, untrimmed and unresolved.</div>
+        <div class="art-card-footer">
+          <span>5 min read · Jan 2025</span>
+          <span class="art-card-readmore">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="art-card reveal" data-modal="3" data-filter="nature essay" href="#">
+      <div class="art-card-img">
+        <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80" alt="Rain">
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-tag">Essay · Nature</div>
+        <div class="art-card-title">What the Rain Taught Me About Patience</div>
+        <div class="art-card-excerpt">Monsoon season in the tropics is not a pause in life — it is life, loud and insistent, reshaping everything it touches.</div>
+        <div class="art-card-footer">
+          <span>7 min read · Dec 2024</span>
+          <span class="art-card-readmore">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="art-card reveal" data-modal="4" data-filter="memoir life" href="#">
+      <div class="art-card-img">
+        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80" alt="Books">
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-tag">Memoir · Books</div>
+        <div class="art-card-title">The Library at the End of the Lane</div>
+        <div class="art-card-excerpt">A small building, half-forgotten, filled with books that smelled like other people's afternoons — and how it made me a reader.</div>
+        <div class="art-card-footer">
+          <span>9 min read · Nov 2024</span>
+          <span class="art-card-readmore">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="art-card reveal" data-modal="5" data-filter="travel essay" href="#">
+      <div class="art-card-img">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Path">
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-tag">Travel · Essay</div>
+        <div class="art-card-title">Notes from an Unnamed Road in the Hills</div>
+        <div class="art-card-excerpt">There are roads that don't appear on maps, and they are always the most important ones — the kind found by accident, kept by heart.</div>
+        <div class="art-card-footer">
+          <span>6 min read · Oct 2024</span>
+          <span class="art-card-readmore">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="art-card reveal" data-modal="6" data-filter="nature life" href="#">
+      <div class="art-card-img">
+        <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=600&q=80" alt="Sunrise">
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-tag">Nature · Life</div>
+        <div class="art-card-title">Sunrise as a Form of Hope</div>
+        <div class="art-card-excerpt">We speak of new beginnings at midnight — but the real start of a day is that first blush of gold against the dark, before even the birds have woken.</div>
+        <div class="art-card-footer">
+          <span>4 min read · Sep 2024</span>
+          <span class="art-card-readmore">Read →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Lil Eye of <span>Mine</span></div>
+    <p class="footer-tagline">Seeing the world, one frame at a time.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="articles.html">Articles</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+    </div>
+    <p class="footer-copy">© 2025 Lil Eye of Mine</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="articleModal">
+  <button class="modal-close" id="modalClose">✕</button>
+  <div class="modal-content">
+    <div class="modal-img"><img id="modalImg" src="" alt=""></div>
+    <div class="modal-body">
+      <div class="modal-tag" id="modalTag"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-text" id="modalText"></div>
+    </div>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script>
+const articles = [
+  {
+    tag: 'Essay · Nature',
+    title: 'On the Quiet Hours Before Dawn',
+    meta: 'March 2025 · 6 min read',
+    img: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=900&q=80',
+    text: `<p>There is a particular quality of silence that exists only in the moments before sunrise — heavy with possibility, soft with forgotten dreams and the last embers of night.</p><p>I have been waking before dawn for most of my adult life, not out of discipline or ambition, but because I am afraid to miss it. The world in those hours belongs to no one yet. The sky is a color that has no name in any language I know — a bruised indigo slowly softening, like a held breath finally released.</p><p>The birds begin before the light does. A single note, tentative, as if testing the air. Then another answers it. By the time the first pale pink seeps into the horizon, there is a whole conversation happening above the city's silence. I sit with my tea and listen, and I try not to think about the day ahead.</p><p>This is the only hour that belongs entirely to me. No one can reach me here. No task is urgent enough. The world waits, and I breathe, and somewhere in the distance, the dark becomes something else entirely.</p>`
+  },
+  {
+    tag: 'Memoir · Travel',
+    title: 'Postcards from a City That Doesn\'t Sleep',
+    meta: 'February 2025 · 8 min read',
+    img: 'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=900&q=80',
+    text: `<p>A wanderer's notes on Colombo — written between cups of strong tea and sudden rain that smells of jasmine and iron.</p><p>This city has always resisted my attempts to describe it. Every time I reach for a metaphor, it shifts. It is coastal and landlocked in the same breath, ancient and frantic, formal and undone. It rains here without warning — not politely, like cities that give you time to find shelter, but immediately and completely, as if the sky simply couldn't wait another moment.</p><p>I came to Colombo on a whim, with two changes of clothes and the address of a guesthouse I'd found on a faded forum post. The owner, an elderly woman named Seetha, made me eat before I unpacked. "You can see the room later," she said. "The kottu is getting cold."</p><p>That is the city in a sentence. It feeds you first, asks questions later. It doesn't care about your plans.</p>`
+  },
+  {
+    tag: 'Reflection · Life',
+    title: 'The Art of Letting Things Be Unfinished',
+    meta: 'January 2025 · 5 min read',
+    img: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&q=80',
+    text: `<p>Not everything needs a conclusion. Some thoughts are better left growing wild at the edges, untrimmed and unresolved.</p><p>I have a notebook I've been writing in for three years. It is not finished and it never will be. Pages began in winter with dark ink look nothing like the pages begun in summer, light and looping. I used to be bothered by this. I thought a notebook should cohere, should mean something whole.</p><p>Now I understand that the incompleteness is the point. A project doesn't fail because it stops before its ending. A conversation isn't wasted because it trailed off into silence. Some things are allowed to exist in the middle, in the beautiful unresolved tension of not-yet.</p><p>I'm learning to leave the last line of a poem unwritten. To put down a painting before it becomes labored. To let a friendship exist only in the memory of one long afternoon. These unfinished things accumulate, and together, they make a life — not a completed one, but a living one.</p>`
+  },
+  {
+    tag: 'Essay · Nature',
+    title: 'What the Rain Taught Me About Patience',
+    meta: 'December 2024 · 7 min read',
+    img: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=900&q=80',
+    text: `<p>Monsoon season in the tropics is not a pause in life — it is life, loud and insistent, reshaping everything it touches.</p><p>You cannot rush through rain like this. You simply cannot. The sky commits fully, without reservation or apology. The streets become rivers, the gutters sing, and anyone with sense sits down and waits. The impatient ones get soaked. The wise ones accept that the rain arrived and they did not, and they find a chair.</p><p>I learned patience the slow way — by fighting it first. Planning around the weather, resenting delays, carrying an umbrella I inevitably forgot. It took several monsoons before I understood that the rain was not inconveniencing me. It was demonstrating something. That forces larger than scheduling exist. That some things will not be hurried. That a downpour is worth watching, not avoiding.</p>`
+  },
+  {
+    tag: 'Memoir · Books',
+    title: 'The Library at the End of the Lane',
+    meta: 'November 2024 · 9 min read',
+    img: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=900&q=80',
+    text: `<p>A small building, half-forgotten, filled with books that smelled like other people's afternoons — and how it made me a reader.</p><p>The library was not a handsome building. It was the color of old teeth, squat and apologetic at the end of a lane that flooded when it rained. The sign above the door had lost two of its letters so it read just "LIB ARY," which I thought was a fine name for a place where words went missing and turned up somewhere else.</p><p>I started going when I was eight, mostly to escape the noise of summer holidays. The librarian, Mr. Bandara, wore the same brown cardigan every day and never asked what I was looking for. He simply watched me browse and occasionally slid a book across the counter without a word, as if he'd heard a question I hadn't asked aloud.</p><p>I think about him every time I find a book I needed before I knew I needed it. That quiet act of noticing — of seeing what someone requires — is the most underrated form of generosity.</p>`
+  },
+  {
+    tag: 'Travel · Essay',
+    title: 'Notes from an Unnamed Road in the Hills',
+    meta: 'October 2024 · 6 min read',
+    img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80',
+    text: `<p>There are roads that don't appear on maps, and they are always the most important ones — the kind found by accident, kept by heart.</p><p>The road appeared between two tea estates, barely wider than the car. My driver, Prabhath, turned onto it without hesitation — something I'd come to understand was his way of saying "trust me." I gripped the door handle. The hills fell away on both sides, terraced in bright green, and the sky was the kind of blue that makes you feel the planet is enormous and you are pleasantly small.</p><p>We didn't stop anywhere in particular. That was the point, I think. To move through a landscape slowly enough to be changed by it, without needing to name what changed. I took no photographs. I wrote nothing down. Some things are better kept only in the body — in the way the cool air felt through the open window, in the smell of earth and eucalyptus, in the knowledge that somewhere there is a road that exists only because I was on it once.</p>`
+  },
+  {
+    tag: 'Nature · Life',
+    title: 'Sunrise as a Form of Hope',
+    meta: 'September 2024 · 4 min read',
+    img: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=900&q=80',
+    text: `<p>We speak of new beginnings at midnight — but the real start of a day is that first blush of gold against the dark, before even the birds have woken.</p><p>I don't believe in easy hope. The kind that says "things will get better" without evidence, without texture. But I believe in sunrise. I believe in it as a physical fact — repeatable, inevitable, indifferent to whether you deserve it or not. The sun rises whether you watched it or missed it, whether you slept through an alarm or lay awake counting your failures.</p><p>That indifference is, strangely, the most comforting thing about it. You don't have to earn the dawn. You just have to be there. And if you can manage to be there, standing at a window or a hilltop or just a parking lot looking east, something in you quiets. The light comes, and you are held briefly in it, and that is enough. That is always enough.</p>`
+  }
+];
+
+// Open modal
+document.querySelectorAll('[data-modal]').forEach(el => {
+  el.addEventListener('click', e => {
+    e.preventDefault();
+    const i = parseInt(el.dataset.modal);
+    const a = articles[i];
+    if (!a) return;
+    document.getElementById('modalImg').src = a.img;
+    document.getElementById('modalTag').textContent = a.tag;
+    document.getElementById('modalTitle').textContent = a.title;
+    document.getElementById('modalMeta').textContent = a.meta;
+    document.getElementById('modalText').innerHTML = a.text;
+    document.getElementById('articleModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeModal() {
+  document.getElementById('articleModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('articleModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('articleModal')) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Filter tabs
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter = tab.dataset.filter;
+    document.querySelectorAll('.art-card').forEach(card => {
+      if (filter === 'all' || card.dataset.filter.includes(filter)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+/* ═══════════════════════════════════════════
+   LEAF & INK — Shared Stylesheet
+   Palette: Forest Green · Warm Cream · Gold
+   ═══════════════════════════════════════════ */
+
+:root {
+  --green-deep:   #0d2318;
+  --green-mid:    #1a3a2a;
+  --green-light:  #2a5540;
+  --cream:        #f5ede0;
+  --cream-muted:  #c8b99a;
+  --gold:         #c9903a;
+  --gold-dim:     rgba(201,144,58,0.4);
+  --gold-glow:    rgba(201,144,58,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+/* ── CUSTOM CURSOR ── */
+* { cursor: none !important; }
+
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, background 0.3s ease, width 0.3s ease, height 0.3s ease;
+  mix-blend-mode: normal;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(201,144,58,0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, width 0.35s ease, height 0.35s ease,
+              border-color 0.35s ease, background 0.35s ease;
+}
+
+/* Hover state — grows ring, dot pulses gold */
+body.cursor-hover .cursor-dot {
+  width: 10px; height: 10px;
+  background: var(--cream);
+}
+
+body.cursor-hover .cursor-ring {
+  width: 52px; height: 52px;
+  border-color: var(--gold);
+  background: rgba(201,144,58,0.07);
+}
+
+/* Click state */
+body.cursor-click .cursor-dot {
+  width: 6px; height: 6px;
+  background: var(--cream);
+}
+
+body.cursor-click .cursor-ring {
+  width: 22px; height: 22px;
+  border-color: var(--cream);
+  background: rgba(201,144,58,0.15);
+}
+
+body {
+  background: var(--green-deep);
+  color: var(--cream);
+  font-family: 'Lora', serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── NAVIGATION ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+  transition: background 0.4s, backdrop-filter 0.4s;
+}
+
+.nav.scrolled {
+  background: rgba(13,35,24,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,144,58,0.15);
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--cream); text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.nav-logo span { color: var(--gold); font-style: italic; }
+
+.nav-links {
+  display: flex; gap: 2.5rem;
+}
+
+.nav-links a {
+  font-family: 'Lora', serif;
+  font-size: 0.85rem; letter-spacing: 0.15em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--cream-muted); transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 1px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--cream); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  position: relative; z-index: 2;
+  padding: 10rem clamp(1.5rem, 5vw, 6rem) 4rem;
+  max-width: 1300px; margin: 0 auto;
+  text-align: center;
+}
+
+.page-header-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 1.1rem;
+  color: var(--gold); letter-spacing: 0.25em;
+  display: block; margin-bottom: 1rem;
+}
+
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900; color: var(--cream);
+  line-height: 1.0; margin-bottom: 1rem;
+}
+
+.page-header p {
+  font-family: 'Lora', serif;
+  font-style: italic; font-size: 1.1rem;
+  color: var(--cream-muted); max-width: 520px;
+  margin: 0 auto; line-height: 1.7;
+}
+
+/* ── FOOTER ── */
+.footer {
+  position: relative; z-index: 2;
+  border-top: 1px solid rgba(201,144,58,0.2);
+  margin-top: 4rem;
+  padding: 3rem clamp(1.5rem, 5vw, 4rem);
+}
+
+.footer-inner {
+  max-width: 1300px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1rem; text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 700; color: var(--cream);
+}
+
+.footer-logo span { color: var(--gold); font-style: italic; }
+
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 1rem;
+  color: var(--cream-muted);
+}
+
+.footer-links {
+  display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.footer-links a {
+  font-family: 'Lora', serif; font-size: 0.8rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--cream-muted); text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-copy {
+  font-family: 'Lora', serif; font-size: 0.75rem;
+  color: rgba(200,185,154,0.4); letter-spacing: 0.08em;
+}
+
+/* ── STATIC BG (non-homepage) ── */
+.static-bg {
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(201,144,58,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 80%, rgba(26,80,50,0.15) 0%, transparent 60%),
+    var(--green-deep);
+}
+
+/* ── UTILITY ── */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ══════════════════════════════════════
+   FAT BEE FOLLOWER
+   ══════════════════════════════════════ */
+
+.bee-follower {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  transition: opacity 0.4s;
+  transform: translate(-50%, -50%);
+}
+
+.bee-body {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── WINGS ── */
+.bee-wing {
+  position: absolute;
+  width: 20px;
+  height: 13px;
+  background: rgba(220, 240, 255, 0.78);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  border: 1px solid rgba(180, 220, 255, 0.5);
+  top: -6px;
+  animation: wingFlap 0.13s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+.bee-wing-l {
+  left: 0px;
+  transform-origin: bottom right;
+  animation-name: wingFlapL;
+}
+
+.bee-wing-r {
+  right: 0px;
+  transform-origin: bottom left;
+  animation-name: wingFlapR;
+}
+
+@keyframes wingFlapL {
+  from { transform: rotate(-25deg) scaleY(1);   }
+  to   { transform: rotate(-5deg)  scaleY(0.75); }
+}
+
+@keyframes wingFlapR {
+  from { transform: rotate(25deg)  scaleY(1);   }
+  to   { transform: rotate(5deg)   scaleY(0.75); }
+}
+
+/* ── TORSO ── */
+.bee-torso {
+  position: relative;
+  width: 26px;
+  height: 30px;
+  background: #f5c842;
+  border-radius: 50% 50% 45% 45% / 55% 55% 50% 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  box-shadow:
+    inset 0 3px 6px rgba(255,255,255,0.35),
+    inset 0 -3px 5px rgba(180,110,0,0.25),
+    0 2px 8px rgba(0,0,0,0.25);
+  overflow: visible;
+  margin-top: 4px;
+}
+
+/* ── STRIPES ── */
+.bee-stripe {
+  width: 80%;
+  height: 4px;
+  background: #2a1a00;
+  border-radius: 2px;
+  opacity: 0.85;
+}
+
+/* ── FACE ── */
+.bee-face {
+  position: absolute;
+  top: 4px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.bee-eye {
+  width: 5px;
+  height: 6px;
+  background: #1a1000;
+  border-radius: 50%;
+  position: relative;
+}
+
+/* Cute eye shine */
+.bee-eye::after {
+  content: '';
+  position: absolute;
+  top: 1px; right: 1px;
+  width: 2px; height: 2px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+}
+
+/* ── STINGER ── */
+.bee-stinger {
+  position: absolute;
+  bottom: -5px;
+  width: 5px;
+  height: 6px;
+  background: #c89a20;
+  border-radius: 0 0 40% 40%;
+  clip-path: polygon(20% 0%, 80% 0%, 50% 100%);
+}
+
+/* ── IDLE — tiny spin in place ── */
+.bee-idle .bee-body {
+  animation: beeIdle 2.5s ease-in-out infinite;
+}
+
+@keyframes beeIdle {
+  0%   { transform: rotate(0deg)   translateY(0);   }
+  25%  { transform: rotate(8deg)   translateY(-3px); }
+  50%  { transform: rotate(-8deg)  translateY(2px);  }
+  75%  { transform: rotate(5deg)   translateY(-2px); }
+  100% { transform: rotate(0deg)   translateY(0);   }
+}

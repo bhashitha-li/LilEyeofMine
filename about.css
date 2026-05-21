@@ -1,0 +1,255 @@
+
+
+.about-page {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 6rem) 6rem;
+}
+
+/* ── INTRO BLOCK ── */
+.about-intro {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 5rem;
+  align-items: start;
+  margin-bottom: 6rem;
+}
+
+.portrait-col { position: relative; }
+
+.portrait-main {
+  width: 100%; aspect-ratio: 3/4;
+  background: var(--green-mid);
+  border-radius: 2px; overflow: hidden;
+  position: relative; z-index: 1;
+}
+
+.portrait-main-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(145deg, #1a3a2a 0%, #2a5540 60%, #1a3a2a 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9rem; opacity: 0.35;
+}
+
+.portrait-main::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,58,42,0.5) 0%, transparent 60%);
+}
+
+/* Decorative frame lines */
+.portrait-col::before {
+  content: '';
+  position: absolute;
+  top: -16px; left: -16px; right: 16px; bottom: 16px;
+  border: 1px solid rgba(201,144,58,0.25);
+  border-radius: 2px; z-index: 0;
+}
+
+/* Gold accent tag on portrait */
+.portrait-tag {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  z-index: 2;
+  background: rgba(13,35,24,0.85);
+  border: 1px solid var(--gold-dim);
+  padding: 0.6rem 1.5rem;
+  backdrop-filter: blur(8px);
+  text-align: center; white-space: nowrap;
+}
+
+.portrait-tag strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; color: var(--cream); display: block;
+}
+
+.portrait-tag em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 0.8rem; color: var(--gold);
+  letter-spacing: 0.15em;
+}
+
+/* ── TEXT COLUMN ── */
+.about-text-col { padding-top: 1rem; }
+
+.about-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 900; color: var(--cream);
+  line-height: 1.0; margin-bottom: 0.4em;
+}
+
+.about-name em { color: var(--gold); font-style: italic; }
+
+.about-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 1.3rem;
+  color: var(--cream-muted); letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+}
+
+.about-divider {
+  width: 60px; height: 1px; background: var(--gold);
+  margin-bottom: 2rem;
+}
+
+.about-bio p {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem; color: var(--cream-muted);
+  line-height: 1.9; margin-bottom: 1.4em;
+}
+
+.about-bio p strong { color: var(--cream); font-weight: 500; }
+
+/* ── SOCIAL LINKS ── */
+.social-links {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+.social-link {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: 'Lora', serif; font-size: 0.8rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--cream-muted); text-decoration: none;
+  border: 1px solid rgba(201,144,58,0.3);
+  padding: 0.65rem 1.4rem; border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.social-link:hover {
+  color: var(--gold); border-color: var(--gold);
+  background: rgba(201,144,58,0.06);
+  transform: translateY(-2px);
+}
+
+.social-link svg {
+  width: 16px; height: 16px; fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── STATS STRIP ── */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(201,144,58,0.2);
+  border-radius: 3px; overflow: hidden;
+  margin-bottom: 6rem;
+}
+
+.stat-item {
+  padding: 2.5rem 2rem; text-align: center;
+  border-right: 1px solid rgba(201,144,58,0.15);
+  transition: background 0.3s;
+}
+
+.stat-item:last-child { border-right: none; }
+.stat-item:hover { background: rgba(201,144,58,0.04); }
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 900;
+  color: var(--gold); line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 0.9rem;
+  color: var(--cream-muted); letter-spacing: 0.1em;
+}
+
+/* ── INTERESTS ── */
+.interests-section { margin-bottom: 6rem; }
+
+.interests-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; color: var(--cream);
+  margin-bottom: 2.5rem;
+  display: flex; align-items: center; gap: 1.5rem;
+}
+
+.interests-heading::after {
+  content: ''; flex: 1; height: 1px; background: rgba(201,144,58,0.2);
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.2rem;
+}
+
+.interest-pill {
+  border: 1px solid rgba(201,144,58,0.2);
+  border-radius: 3px; padding: 1.25rem 1.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+  transition: all 0.3s;
+}
+
+.interest-pill:hover {
+  border-color: var(--gold);
+  background: rgba(201,144,58,0.05);
+  transform: translateY(-3px);
+}
+
+.interest-icon { font-size: 1.4rem; }
+
+.interest-text {
+  font-family: 'Lora', serif; font-size: 0.9rem;
+  color: var(--cream-muted); line-height: 1.4;
+}
+
+.interest-text strong {
+  display: block; color: var(--cream);
+  font-size: 0.95rem; margin-bottom: 0.1rem;
+}
+
+/* ── CONTACT ── */
+.contact-section {
+  text-align: center;
+  padding: 5rem 2rem;
+  border: 1px solid rgba(201,144,58,0.2);
+  border-radius: 4px;
+  background: rgba(245,237,224,0.02);
+  position: relative; overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.contact-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--cream); margin-bottom: 1rem;
+}
+
+.contact-section h2 em { color: var(--gold); font-style: italic; }
+
+.contact-section p {
+  font-family: 'Lora', serif; font-style: italic;
+  color: var(--cream-muted); font-size: 1.05rem;
+  max-width: 440px; margin: 0 auto 2.5rem; line-height: 1.7;
+}
+
+.contact-email {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+  padding-bottom: 4px;
+  transition: border-color 0.3s;
+}
+
+.contact-email:hover { border-color: var(--gold); }
+
+@media (max-width: 900px) {
+  .about-intro { grid-template-columns: 1fr; gap: 3rem; }
+  .portrait-col { max-width: 320px; margin: 0 auto; }
+  .stats-strip { grid-template-columns: 1fr 1fr; }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(3) { border-top: 1px solid rgba(201,144,58,0.15); }
+  .stat-item:nth-child(4) { border-top: 1px solid rgba(201,144,58,0.15); border-right: none; }
+}
+

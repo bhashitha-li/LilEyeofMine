@@ -1,0 +1,166 @@
+
+
+.gallery-page {
+  position: relative; z-index: 2;
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 3rem) 6rem;
+}
+
+/* ── MASONRY GRID ── */
+.masonry {
+  columns: 4 240px;
+  column-gap: 12px;
+  gap: 12px;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  cursor: pointer;
+  display: block;
+}
+
+.masonry-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.6s ease, filter 0.5s ease;
+  filter: sepia(20%) saturate(0.85) brightness(0.92);
+}
+
+.masonry-item:hover img {
+  transform: scale(1.06);
+  filter: sepia(0%) saturate(1.1) brightness(1);
+}
+
+.masonry-item-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,35,24,0.85) 0%, transparent 50%);
+  opacity: 0; transition: opacity 0.4s;
+  display: flex; align-items: flex-end;
+  padding: 1.5rem;
+}
+
+.masonry-item:hover .masonry-item-overlay { opacity: 1; }
+
+.masonry-item-caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 0.95rem;
+  color: var(--cream); letter-spacing: 0.08em;
+  line-height: 1.3;
+}
+
+.masonry-item-caption small {
+  display: block; margin-top: 0.25rem;
+  font-family: 'Lora', serif; font-style: normal;
+  font-size: 0.72rem; color: var(--gold); letter-spacing: 0.12em;
+}
+
+/* Hover zoom icon */
+.masonry-item::before {
+  content: '⊕';
+  position: absolute; top: 1rem; right: 1rem; z-index: 2;
+  font-size: 1.5rem; color: var(--cream); opacity: 0;
+  transition: opacity 0.4s, transform 0.4s;
+  transform: scale(0.7);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.masonry-item:hover::before { opacity: 0.9; transform: scale(1); }
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  position: fixed; inset: 0; z-index: 600;
+  background: rgba(9,22,16,0.97);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.lightbox.open { opacity: 1; pointer-events: all; }
+
+.lightbox-img-wrap {
+  position: relative; max-width: 90vw; max-height: 90vh;
+  transform: scale(0.92);
+  transition: transform 0.4s ease;
+}
+
+.lightbox.open .lightbox-img-wrap { transform: scale(1); }
+
+.lightbox-img {
+  max-width: 90vw; max-height: 80vh;
+  object-fit: contain; display: block;
+  border-radius: 3px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+.lightbox-caption {
+  text-align: center; margin-top: 1.5rem;
+}
+
+.lightbox-caption strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; color: var(--cream); display: block;
+  margin-bottom: 0.25rem;
+}
+
+.lightbox-caption span {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 0.85rem; color: var(--cream-muted);
+}
+
+.lightbox-close {
+  position: fixed; top: 1.5rem; right: 1.5rem;
+  width: 48px; height: 48px;
+  background: rgba(245,237,224,0.08); border: 1px solid var(--gold-dim);
+  border-radius: 50%; cursor: pointer; color: var(--cream);
+  font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+  transition: background 0.3s; z-index: 10;
+}
+
+.lightbox-close:hover { background: var(--gold); color: var(--green-deep); }
+
+.lightbox-nav {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: 52px; height: 52px;
+  background: rgba(245,237,224,0.06); border: 1px solid var(--gold-dim);
+  border-radius: 50%; cursor: pointer; color: var(--cream);
+  font-size: 1.3rem; display: flex; align-items: center; justify-content: center;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+.lightbox-nav:hover { background: rgba(201,144,58,0.3); }
+.lightbox-prev { left: 1.5rem; }
+.lightbox-next { right: 1.5rem; }
+
+/* ── CATEGORY FILTERS ── */
+.gallery-filters {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  justify-content: center; margin-bottom: 3rem;
+}
+
+.gallery-filter {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 0.95rem;
+  letter-spacing: 0.12em; cursor: pointer;
+  color: var(--cream-muted); border: none;
+  background: transparent; padding: 0.4rem 0;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s;
+}
+
+.gallery-filter:hover, .gallery-filter.active {
+  color: var(--gold); border-bottom-color: var(--gold);
+}
+
+/* ── COUNTER ── */
+.gallery-count {
+  text-align: center;
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 0.85rem; color: var(--cream-muted);
+  margin-bottom: 2.5rem; letter-spacing: 0.08em;
+}
+

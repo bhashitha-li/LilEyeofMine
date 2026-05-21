@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Lil Eye of Mine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+<div class="static-bg"></div>
+
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Lil Eye of <span>Mine</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="articles.html">Articles</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<div class="page-header reveal">
+  <span class="page-header-tag">Visual Stories</span>
+  <h1>Gallery</h1>
+  <p>Light caught in passing — photographs taken slowly, between the lines of life.</p>
+</div>
+
+<div class="gallery-page">
+
+  <div class="gallery-filters reveal">
+    <button class="gallery-filter active" data-cat="all">All</button>
+    <button class="gallery-filter" data-cat="nature">Nature</button>
+    <button class="gallery-filter" data-cat="travel">Travel</button>
+    <button class="gallery-filter" data-cat="still">Still Life</button>
+    <button class="gallery-filter" data-cat="light">Light & Shadow</button>
+  </div>
+
+  <p class="gallery-count reveal">24 photographs · hover to expand · click to view full</p>
+
+  <div class="masonry" id="masonryGrid">
+    <!-- Photos injected by JS -->
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Lil Eye of <span>Mine</span></div>
+    <p class="footer-tagline">Seeing the world, one frame at a time.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="articles.html">Articles</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+    </div>
+    <p class="footer-copy">© 2025 Lil Eye of Mine</p>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lbClose">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lbPrev">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lbNext">›</button>
+  <div class="lightbox-img-wrap">
+    <img class="lightbox-img" id="lbImg" src="" alt="">
+    <div class="lightbox-caption">
+      <strong id="lbTitle"></strong>
+      <span id="lbLocation"></span>
+    </div>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script>
+const photos = [
+  { src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=85', title: 'Through the Canopy', location: 'Forest, Sri Lanka', cat: 'nature' },
+  { src: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&q=85', title: 'Wild Bloom', location: 'Highlands', cat: 'nature' },
+  { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=85', title: 'Ridge Line', location: 'Ella, Sri Lanka', cat: 'travel' },
+  { src: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=700&q=85', title: 'Coastal Morning', location: 'Galle', cat: 'travel' },
+  { src: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=85', title: 'Lake at First Light', location: 'Horton Plains', cat: 'light' },
+  { src: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=85', title: 'Forest Floor', location: 'Sinharaja', cat: 'nature' },
+  { src: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=85', title: 'Rain Study', location: 'Colombo', cat: 'light' },
+  { src: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=700&q=85', title: 'Golden Hour', location: 'Negombo', cat: 'light' },
+  { src: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=85', title: 'Morning Notes', location: 'Home studio', cat: 'still' },
+  { src: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=700&q=85', title: 'Afternoon Reading', location: 'Kandy', cat: 'still' },
+  { src: 'https://images.unsplash.com/photo-1545389336-cf090694435e?w=600&q=85', title: 'Fallen Petals', location: 'Garden', cat: 'still' },
+  { src: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=700&q=85', title: 'Between Leaves', location: 'Peradeniya', cat: 'light' },
+  { src: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=85', title: 'Valley Mist', location: 'Nuwara Eliya', cat: 'nature' },
+  { src: 'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=600&q=85', title: 'Tide Line', location: 'Trincomalee', cat: 'travel' },
+  { src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700&q=85', title: 'Night Stars', location: 'Yala', cat: 'light' },
+  { src: 'https://images.unsplash.com/photo-1506260408121-e353d10b87c7?w=600&q=85', title: 'Tea Terraces', location: 'Hatton', cat: 'travel' },
+  { src: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=700&q=85', title: 'Bamboo Study', location: 'Forest reserve', cat: 'nature' },
+  { src: 'https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?w=600&q=85', title: 'Still Water', location: 'Bolgoda', cat: 'light' },
+  { src: 'https://images.unsplash.com/photo-1495195134817-aeb325a55b65?w=700&q=85', title: 'Coffee & Quiet', location: 'Kandy café', cat: 'still' },
+  { src: 'https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?w=600&q=85', title: 'Temple Garden', location: 'Anuradhapura', cat: 'travel' },
+  { src: 'https://images.unsplash.com/photo-1526779259212-939e64788e3c?w=700&q=85', title: 'Old Stone Steps', location: 'Sigiriya', cat: 'travel' },
+  { src: 'https://images.unsplash.com/photo-1478827387698-1527781a4887?w=600&q=85', title: 'Harvest Light', location: 'Countryside', cat: 'nature' },
+  { src: 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=700&q=85', title: 'Ink & Glass', location: 'Studio', cat: 'still' },
+  { src: 'https://images.unsplash.com/photo-1491466424936-e304919aada7?w=800&q=85', title: 'Open Road', location: 'Colombo to Galle', cat: 'travel' },
+];
+
+let current = 0;
+let filtered = [...photos];
+
+function buildGrid(items) {
+  const grid = document.getElementById('masonryGrid');
+  grid.innerHTML = '';
+  items.forEach((p, i) => {
+    const div = document.createElement('div');
+    div.className = 'masonry-item reveal';
+    div.innerHTML = `
+      <img src="${p.src}" alt="${p.title}" loading="lazy">
+      <div class="masonry-item-overlay">
+        <div class="masonry-item-caption">
+          ${p.title}
+          <small>${p.location}</small>
+        </div>
+      </div>
+    `;
+    div.addEventListener('click', () => openLightbox(i, items));
+    grid.appendChild(div);
+  });
+  // Trigger reveals
+  setTimeout(() => {
+    document.querySelectorAll('.masonry-item.reveal').forEach((el, idx) => {
+      setTimeout(() => el.classList.add('visible'), idx * 50);
+    });
+  }, 50);
+}
+
+function openLightbox(i, items) {
+  current = i;
+  filtered = items;
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateLightbox() {
+  const p = filtered[current];
+  document.getElementById('lbImg').src = p.src;
+  document.getElementById('lbTitle').textContent = p.title;
+  document.getElementById('lbLocation').textContent = p.location;
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lbPrev').addEventListener('click', () => {
+  current = (current - 1 + filtered.length) % filtered.length;
+  updateLightbox();
+});
+document.getElementById('lbNext').addEventListener('click', () => {
+  current = (current + 1) % filtered.length;
+  updateLightbox();
+});
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') { current = (current - 1 + filtered.length) % filtered.length; updateLightbox(); }
+  if (e.key === 'ArrowRight') { current = (current + 1) % filtered.length; updateLightbox(); }
+});
+
+// Filters
+document.querySelectorAll('.gallery-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.gallery-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    const items = cat === 'all' ? photos : photos.filter(p => p.cat === cat);
+    buildGrid(items);
+  });
+});
+
+buildGrid(photos);
+</script>
+</body>
+</html>
